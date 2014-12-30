@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   after_create :create_quaderno_account
 
   def create_quaderno_account
-  	true
+  	true #HTTParty.post( Rails.secrets.quaderno_secret)
   end
 end
