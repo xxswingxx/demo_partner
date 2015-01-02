@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141226134136) do
+ActiveRecord::Schema.define(version: 20150102100154) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,9 +26,18 @@ ActiveRecord::Schema.define(version: 20141226134136) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "access_token"
+    t.string   "refresh_token"
+    t.datetime "token_expires_at"
+    t.integer  "quaderno_id"
+    t.integer  "quaderno_account_id"
+    t.integer  "subscription_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["quaderno_account_id"], name: "index_users_on_quaderno_account_id"
+  add_index "users", ["quaderno_id"], name: "index_users_on_quaderno_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["subscription_id"], name: "index_users_on_subscription_id"
 
 end
