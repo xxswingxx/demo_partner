@@ -3,5 +3,5 @@
  </h1>
 
 <p>
-   <iframe src=<%= "http://lvh.me:3000/partners/api/v1/users/login.json?application=Habitissimo&jwt=#{@jwt_package}" %> frameborder='0' width='1280' height='1000'> </iframe>
+   <iframe src=<%= "http://lvh.me:3000/partners/api/v1/accounts/#{current_user.quaderno_account_id}/sessions/create.json?client_id=#{Rails.application.secrets.quaderno_id}&jwt=#{@jwt_package}" %> frameborder='0' width='1280' height='1000'> </iframe>
 </p>
