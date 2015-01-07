@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'byebug'
+gem 'country_select', github: 'stefanpenner/country_select'
 gem 'devise', '~> 3.4.1'
 gem 'haml'
 gem 'httparty'

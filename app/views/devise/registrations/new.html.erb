@@ -9,6 +9,66 @@
   </div>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street_line_1 %><br />
+    <%= f.text_field :street_line_2, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street_line_2 %><br />
+    <%= f.text_field :street_line_2, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :region %><br />
+    <%= f.text_field :region, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.country_select :country, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_1 %><br />
+    <%= f.text_field :phone_2, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_2 %><br />
+    <%= f.text_field :street_line_2, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :web %><br />
+    <%= f.text_field :web, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tax_id %><br />
+    <%= f.text_field :tax_id, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vat_number %><br />
+    <%= f.text_field :vat_number, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

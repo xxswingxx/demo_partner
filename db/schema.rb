@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102100154) do
+ActiveRecord::Schema.define(version: 20150105141323) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20150102100154) do
     t.integer  "quaderno_id"
     t.integer  "quaderno_account_id"
     t.integer  "subscription_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street_line_1"
+    t.string   "street_line_2"
+    t.string   "city"
+    t.string   "region"
+    t.string   "country"
+    t.string   "phone_1"
+    t.string   "phone_2"
+    t.string   "web"
+    t.string   "tax_id"
+    t.string   "vat_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
