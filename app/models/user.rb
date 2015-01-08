@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
         }
       ]
     }
-    create_user_response = HTTParty.post('http://lvh.me:3000/partners/api/v1/accounts.json', body: account_attributes, basic_auth: { username: Rails.application.secrets.quaderno_secret })
+    create_user_response = HTTParty.post("#{Rails.application.secrets.quaderno_url}/partners/api/v1/accounts.json", body: account_attributes, basic_auth: { username: Rails.application.secrets.quaderno_secret })
     if create_user_response.code == 201
       response = create_user_response.parsed_response.symbolize_keys
       self.assign_attributes({
