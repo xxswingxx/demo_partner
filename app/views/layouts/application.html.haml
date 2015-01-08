@@ -13,11 +13,14 @@
       %ul.title-area
         %li.name
           %h1
-            = link_to "DemoPartner", '#'
+            = link_to "DemoPartner", users_path
       %section.top-bar-section
         %ul.right
           %li.divider
           - if user_signed_in?
+            %li.divider
+            %li= link_to('Edit profile', '/users/edit')
+            %li.divider
             %li= link_to('Logout', destroy_user_session_path, :method => :delete)
           - else
             %li= link_to('Login', new_user_session_path)

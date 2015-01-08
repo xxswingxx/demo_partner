@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   before_create :create_quaderno_account
 
+  validates :first_name, presence: true
+
   def create_quaderno_account
     account_attributes = {
       first_name: first_name,
