@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def show
+    @user = current_user
+  end
+
   private
 
   def generate_login_url

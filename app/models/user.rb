@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
       self.assign_attributes({
         access_token: response[:access_token],
         refresh_token: response[:refresh_token],
-        refresh_token: response[:token_expires_at],
+        token_expires_at: Time.now + response[:token_expires_in_seconds],
         quaderno_id: response[:user_id],
         quaderno_account_id: response[:account_id],
         subscription_id: response[:subscription_id]
