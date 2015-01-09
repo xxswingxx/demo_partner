@@ -29,11 +29,12 @@ class DocumentsController < ApplicationController
   end
 
   def get_contacts
-    response = HTTParty.get("#{Rails.application.secrets.quaderno_url}api/v1/contacts.json", headers: { "Authorization" => "Bearer  #{current_user.access_token}" })
+    response = HTTParty.get("#{Rails.application.secrets.quaderno_url}api/v1/contacts.json", headers: { "Authorization" => "Bearer #{current_user.access_token}" })
     if response.parsed_response.count.zero?
       flash[:alert] = "Upppss… It seems you don't have any contact. What about creating one now?"
       return redirect_to new_contact_path
     end
+
     response.parsed_response.map { |contact| [contact['full_name'], contact['id']]}
   end
 end

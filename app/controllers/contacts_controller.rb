@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new contact_params
     if @contact.valid?
-      response = HTTParty.post "#{Rails.application.secrets.quaderno_url}api/v1/contacts.json", body: @contact.attributes, headers: { "Authorization" =>  "Bearer  #{current_user.access_token}" }
+      response = HTTParty.post "#{Rails.application.secrets.quaderno_url}api/v1/contacts.json", body: @contact.attributes, headers: { "Authorization" =>  "Bearer #{current_user.access_token}" }
       if response.code ==  201 
         flash[:notice] = 'Contact successfully created.'
         return redirect_to(users_path)
