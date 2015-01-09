@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :users, only: [:index]
-
+  resources :documents
+  resources :contacts
   root to: 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

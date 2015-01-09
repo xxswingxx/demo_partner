@@ -21,12 +21,19 @@
               %ul.right
                 %li.divider
                 - if user_signed_in?
+                  %li= link_to('Create contact', new_contact_path)
+                  %li.divider
+                  %li= link_to('Create document', new_document_path)
                   %li.divider
                   %li= link_to('Edit profile', '/users/edit')
                   %li.divider
                   %li= link_to('Logout', destroy_user_session_path, :method => :delete)
                 - else
                   %li= link_to('Login', new_user_session_path)
+
+    .alerts-container.row
+      .small-12.columns= render '/layouts/alerts'
+
     #main
       .row
         .small-12.columns=yield

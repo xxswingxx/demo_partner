@@ -1,0 +1,5 @@
+- flash.each do |type, msg|
+  - if type != :event
+    .alert-box{ class: foundation_type(type) }
+      = msg
+      = link_to '×', '', class: 'close'

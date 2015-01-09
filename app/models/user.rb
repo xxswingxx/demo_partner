@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   before_create :create_quaderno_account
-
+  before_save :update_quaderno_account
   validates :first_name, presence: true
 
   def create_quaderno_account
@@ -45,5 +45,26 @@ class User < ActiveRecord::Base
     else
       false
     end
+  end
+
+  def update_quaderno_account
+    return true if self.new_record?
+
+    account_attributes = {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      street_line_1: street_line_1,
+      street_line_2: street_line_2,
+      postal_code: "123558",
+      city: city,
+      region: region,
+      country: country,
+      phone_1: phone_1,
+      phone_2: phone_2,
+    }
+
+    response = HTTParty.put("#{Rails.application.secrets.quaderno_url}partners/api/v1/accounts/#{quaderno_account_id}.json", body: account_attributes, basic_auth: { username: Rails.application.secrets.quaderno_secret })
+    response.code == 200
   end
 end

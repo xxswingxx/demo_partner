@@ -49,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # You can put the params you want to permit in the empty array.
   def configure_account_update_params
     [:first_name, :last_name, :street_line_1, :street_line_2, :city, :region, :country, :phone_1, :phone_2, :web, :tax_id, :vat_number, :email, :password, :password_confirmation].each do |custom_field|
-      devise_parameter_sanitizer.for(:account_update) << :attribute
+      devise_parameter_sanitizer.for(:account_update) << custom_field
     end
   end
 

@@ -7,11 +7,11 @@
       = f.input :email, autofocus: true, as: :email, wrapper: :horizontal_form
       = f.input :first_name, autofocus: true, wrapper: :horizontal_form
       = f.input :last_name, autofocus: true, wrapper: :horizontal_form
-      = f.input :street_line_2, autofocus: true, wrapper: :horizontal_form
+      = f.input :street_line_1, autofocus: true, wrapper: :horizontal_form
       = f.input :street_line_2, autofocus: true, wrapper: :horizontal_form
       = f.input :city, autofocus: true, wrapper: :horizontal_form
       = f.input :region, autofocus: true, wrapper: :horizontal_form
-      = f.input :country, autofocus: true, as: :country, wrapper: :horizontal_form
+      = f.input :country, autofocus: true, as: :country, include_blank: false, wrapper: :horizontal_form
       = f.input :phone_1, autofocus: true, wrapper: :horizontal_form
       = f.input :phone_2, autofocus: true, wrapper: :horizontal_form
       = f.input :web, autofocus: true, wrapper: :horizontal_form
@@ -21,7 +21,7 @@
       = f.input :password_confirmation, autocomplete: "off", as: :password, wrapper: :horizontal_form
       = f.input :current_password, autocomplete: "off", as: :password, wrapper: :horizontal_form
       .actions.row
-        .small-12.columns= f.submit "Update"
+        .small-12.columns= f.button :submit, "Update"
 .row
   .small-12.columns
     = button_to("Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete )

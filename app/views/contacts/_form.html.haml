@@ -1,0 +1,16 @@
+= simple_form_for(@contact) do |f|
+  = f.input :first_name, wrapper: :horizontal_form
+  = f.input :last_name, wrapper: :horizontal_form
+  = f.input :contact_name, wrapper: :horizontal_form
+  = f.input :street_line_1, wrapper: :horizontal_form
+  = f.input :street_line_2, wrapper: :horizontal_form
+  = f.input :city, wrapper: :horizontal_form
+  = f.input :region, wrapper: :horizontal_form
+  = f.input :country, as: :country, include_blank: false, wrapper: :horizontal_form
+  = f.input :phone_1, wrapper: :horizontal_form
+  = f.input :phone_2, wrapper: :horizontal_form
+  = f.input :email, wrapper: :horizontal_form
+  = f.input :web, wrapper: :horizontal_form
+  = f.input :vat_number, wrapper: :horizontal_form
+  = f.input :tax_id, wrapper: :horizontal_form
+  = f.button :submit, 'Create contact!'
