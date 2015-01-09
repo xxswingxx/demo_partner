@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
         flash[:notice] = 'Contact successfully created.'
         return redirect_to(users_path)
       else
-        flash.now[:alert] = response.parsed_response['errors'].first
+        flash.now[:alert] = response.parsed_response['errors'].try(:first)
       end
     else
         flash.now[:alert] = 'There are some errors.'

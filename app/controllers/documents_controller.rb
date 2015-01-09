@@ -9,12 +9,12 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.valid?
-      response = HTTParty.post "#{Rails.application.secrets.quaderno_url}api/v1/#{@document.type.pluralize}.json", body: @document.attributes, headers: { "Authorization" =>  "Bearer  #{current_user.access_token}" }
+      response = HTTParty.post "#{Rails.application.secrets.quaderno_url}api/v1/#{@document.type.pluralize}.json", body: @document.attributes, headers: { "Authorization" =>  "Bearer #{current_user.access_token}" }
       if response.code ==  201
         flash[:notice] = 'Document successfully created.'
         return redirect_to users_path
       else
-        flash.now[:alert] = response.parsed_response['errors'].first
+        flash.now[:alert] = response.parsed_response['errors'].try(:first)
       end
     else
       flash.now[:alert] = 'There are some errors…'
