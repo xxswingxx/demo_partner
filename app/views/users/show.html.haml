@@ -26,3 +26,8 @@
         %li
           %strong Token expires at:
           = @user.token_expires_at
+
+.row
+  .small-12.columns
+    - if @user.subscription_id.present?
+      = link_to 'Cancel Quaderno subscription', cancel_quaderno_subscription_user_path(@user)

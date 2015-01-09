@@ -1,5 +1,8 @@
 %h1
   = "Hello, #{current_user.first_name} #{current_user.last_name}".strip
 
-.quaderno-container
-  %iframe{ src: @login_url, frameborder: 0, width: 970, height: 1000 }
+- if current_user.subscription_id.present?
+  .quaderno-container
+    %iframe{ src: @login_url, frameborder: 0, width: 970, height: 1000 }
+- else
+  = link_to('Create a Quaderno subscription', create_quaderno_subscription_user_path(current_user))

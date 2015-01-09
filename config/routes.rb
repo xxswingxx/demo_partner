@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations" }
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    get '/cancel_quaderno_subscription' => 'users#cancel_quaderno_subscription', on: :member, as: :cancel_quaderno_subscription
+    get '/create_quaderno_subscription' => 'users#create_quaderno_subscription', on: :member, as: :create_quaderno_subscription
+  end
+
   resources :documents
   resources :contacts
   root to: 'users#index'
