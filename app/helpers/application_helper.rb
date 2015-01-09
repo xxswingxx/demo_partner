@@ -2,10 +2,10 @@ module ApplicationHelper
 
   def foundation_type(type)
     case type
-      when :warning then 'warning'
-      when :alert then 'alert'
-      when :notice then 'success'
-      when :info then 'secondary'
+      when 'warning' then 'warning round'
+      when 'alert' then 'alert round'
+      when 'notice' then 'success round'
+      when 'info' then 'secondary round'
       else nil
     end
   end
