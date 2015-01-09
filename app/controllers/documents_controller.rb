@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   def new
     auth = "Bearer  #{current_user.access_token}"
     @contacts = get_contacts
-    @document = Document.new(type: 'invoice')
+    @document = Document.new(type: 'invoice', item_quantity: 1)
   end
 
   def create
