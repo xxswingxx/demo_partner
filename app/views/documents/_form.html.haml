@@ -2,7 +2,7 @@
   = f.input :currency, collection: ['EUR', 'CAD', 'USD', 'CHF', 'GBP', 'RMB'], wrapper: :horizontal_form, include_blank: false
   = f.input :type, collection: [:invoice, :estimate, :expense], wrapper: :horizontal_form, value: :invoice, include_blank: false
   = f.input :number, wrapper: :horizontal_form
-  = f.input :issue_date, wrapper: :horizontal_form
+  = f.input :issue_date, wrapper: :horizontal_form, placeholder: Date.today.to_s
   = f.input :item_description, wrapper: :horizontal_form
   = f.input :item_quantity, as: :integer, wrapper: :horizontal_form
   = f.input :item_unit_price, wrapper: :horizontal_form

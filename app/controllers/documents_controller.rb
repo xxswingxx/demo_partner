@@ -8,15 +8,19 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(document_params)
-    response = HTTParty.post "#{Rails.application.secrets.quaderno_url}api/v1/#{@document.type.pluralize}.json", body: @document.attributes, headers: { "Authorization" =>  "Bearer  #{current_user.access_token}" }
-    if response.code ==  201
-      flash[:notice] = 'Document successfully created.'
-      redirect_to users_path
+    if @document.valid?
+      response = HTTParty.post "#{Rails.application.secrets.quaderno_url}api/v1/#{@document.type.pluralize}.json", body: @document.attributes, headers: { "Authorization" =>  "Bearer  #{current_user.access_token}" }
+      if response.code ==  201
+        flash[:notice] = 'Document successfully created.'
+        return redirect_to users_path
+      else
+        flash.now[:alert] = response.parsed_response['errors'].first
+      end
     else
-      response = HTTParty.get("#{Rails.application.secrets.quaderno_url}api/v1/contacts.json", headers: { "Authorization" => "Bearer  #{current_user.access_token}" })
-      @contacts = get_contacts
-      render('new')
+      flash.now[:alert] = 'There are some errors…'
     end
+    @contacts = get_contacts
+    render 'new'
   end
 
   private
